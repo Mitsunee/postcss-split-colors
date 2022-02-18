@@ -1,0 +1,6 @@
+:root {
+  @split-colors {
+    --color-primary: rgb(14, 14, 14);
+    --color-foo: rgb(128 0 0 / 80%);
+  }
+}
