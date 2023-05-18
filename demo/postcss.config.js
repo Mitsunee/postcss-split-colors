@@ -1,3 +1,5 @@
-const postcssSplitColorVars = require("../index.js");
+const postcssSplitColorVars = require("../dist/index.js");
 
-module.exports = { plugins: [postcssSplitColorVars] };
+module.exports = {
+  plugins: [postcssSplitColorVars({ convert: { rgb: true } })]
+};

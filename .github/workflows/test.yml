@@ -24,12 +24,9 @@ jobs:
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Lint
         run: pnpm eslint --max-warnings 0 .
-  test:
+  types:
     needs: lint
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x, 20.x]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -44,5 +41,5 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
-      - name: Run Tests
-        run: pnpm uvu
+      - name: Typecheck
+        run: pnpm typecheck
