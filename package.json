@@ -6,6 +6,10 @@
   "license": "MIT",
   "repository": "mitsunee/postcss-split-colors",
   "main": "index.js",
+  "scripts": {
+    "format": "prettier -w",
+    "lint": "eslint ."
+  },
   "files": [
     "src"
   ],
@@ -14,6 +18,9 @@
   },
   "devDependencies": {
     "clean-publish": "^4.2.0",
+    "eslint": "^8.40.0",
+    "eslint-config-foxkit": "^2.1.1",
+    "eslint-config-prettier": "^8.8.0",
     "postcss": "^8.4.23",
     "postcss-cli": "^10.1.0",
     "prettier": "^2.8.8",

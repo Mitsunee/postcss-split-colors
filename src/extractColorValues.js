@@ -6,7 +6,7 @@ function splitColorValues(values, valNames, error) {
 
   // space-separated syntax
   if (
-    /^[0-9\.]+(%|turn|deg|rad)? [0-9\.]+%? [0-9\.]+%?( \/ [0-9\.]+%?)?$/i.test(
+    /^[0-9.]+(%|turn|deg|rad)? [0-9.]+%? [0-9.]+%?( \/ [0-9.]+%?)?$/i.test(
       values
     )
   ) {
@@ -15,7 +15,7 @@ function splitColorValues(values, valNames, error) {
 
   // comma-separated syntax
   else if (
-    /^[0-9\.]+(%|turn|deg|rad)?,\s*[0-9\.]+%?,\s*[0-9\.]+%?(,\s*[0-9\.]+%?)?$/i.test(
+    /^[0-9.]+(%|turn|deg|rad)?,\s*[0-9.]+%?,\s*[0-9.]+%?(,\s*[0-9.]+%?)?$/i.test(
       values
     )
   ) {

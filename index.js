@@ -24,9 +24,9 @@ module.exports = () => {
 
           // create destructed properties
           for (const [key, value] of colorVals) {
-            const prop = decl.prop + "-" + key;
+            const prop = `${decl.prop}-${key}`;
             const newDecl = new Declaration({ prop, value });
-            const clone = rule.before(newDecl);
+            rule.before(newDecl);
             processedValues.push(`var(${prop})`);
             if (key === "A") usesAlpha = true;
           }

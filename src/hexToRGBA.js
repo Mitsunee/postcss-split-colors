@@ -30,9 +30,7 @@ function hexToRGBA(value, error) {
   r = +`0x${r}`;
   g = +`0x${g}`;
   b = +`0x${b}`;
-  a = a
-    ? "," + Number((+`0x${a || "FF"}` / 255).toPrecision(5)) * 100 + "%"
-    : "";
+  a = a ? `,${Number((+`0x${a || "FF"}` / 255).toPrecision(5)) * 100}%` : "";
 
   return `rgb${a ? "a" : ""}(${r},${g},${b}${a})`;
 }
