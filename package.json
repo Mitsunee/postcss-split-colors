@@ -1,10 +1,10 @@
 {
-  "name": "postcss-split-color-vars",
+  "name": "postcss-split-colors",
   "version": "0.1.0",
   "description": "PostCSS Plugin to destructure colors in custom properties",
   "author": "Mitsunee",
   "license": "MIT",
-  "repository": "mitsunee/postcss-split-color-vars",
+  "repository": "mitsunee/postcss-split-colors",
   "main": "index.js",
   "files": [
     "src"
