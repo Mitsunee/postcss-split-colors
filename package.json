@@ -18,7 +18,8 @@
     "demo": "postcss --config demo/postcss.config.js demo/demo.css"
   },
   "files": [
-    "src"
+    "*.d.ts",
+    "index.js"
   ],
   "dependencies": {
     "colord": "^2.9.3"
