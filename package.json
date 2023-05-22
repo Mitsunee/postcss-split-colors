@@ -14,7 +14,7 @@
     "build:lib": "node build.mjs",
     "build:types": "tsc -p tsconfig.build.json",
     "build:pkgjson": "clear-package-json package.json -o dist/package.json",
-    "build": "pnpm clean && pnpm build:lib && pnpm build:types && pnpm build:pkgjson",
+    "build": "pnpm build:lib && pnpm build:types && pnpm build:pkgjson",
     "demo": "postcss --config demo/postcss.config.js demo/demo.css"
   },
   "files": [
