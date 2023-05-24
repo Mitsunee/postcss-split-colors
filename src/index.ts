@@ -44,7 +44,7 @@ const plugin: PluginCreator<Options> = function (opts) {
         const hsl = colour.toHsl();
         const hslDecl = new Declaration({
           prop: `${decl.prop}-hsl`,
-          value: `${hsl.h} ${hsl.s} ${hsl.l}`
+          value: `${hsl.h}deg ${hsl.s}% ${hsl.l}%`
         });
         decl.before(hslDecl);
       }
@@ -53,7 +53,7 @@ const plugin: PluginCreator<Options> = function (opts) {
         const lab = colour.toLab();
         const labDecl = new Declaration({
           prop: `${decl.prop}-lab`,
-          value: `${lab.l}% ${lab.a} ${lab.l}`
+          value: `${lab.l}% ${lab.a} ${lab.b}`
         });
         decl.before(labDecl);
       }
@@ -71,7 +71,7 @@ const plugin: PluginCreator<Options> = function (opts) {
         const hwb = colour.toHwb();
         const hwbDecl = new Declaration({
           prop: `${decl.prop}-hwb`,
-          value: `${hwb.h} ${hwb.w}% ${hwb.b}%`
+          value: `${hwb.h}deg ${hwb.w}% ${hwb.b}%`
         });
         decl.before(hwbDecl);
       }
