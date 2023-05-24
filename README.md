@@ -9,10 +9,7 @@ Use `!split` in the custom property color declaration you want to split.
 ```css
 :root {
   --primary: rgb(14, 14, 14) !split;
-  --red: hsl(0 80% 50% / 25%) !split;
-  --foo: lch(48.25% 30.07 196.38) !split;
-  --bar: hwb(210 0% 60% / 50%) !split;
-  --baz: lab(52.2345% 40.1645 59.9971) !split;
+  --accent: hsl(0 80% 50% / 25%) !split;
 }
 ```
 
@@ -20,18 +17,13 @@ Use `!split` in the custom property color declaration you want to split.
 :root {
   --primary-rgb: 14 14 14;
   --primary: rgb(var(--primary-rgb));
-  --red-hsl: 0 80 50;
-  --red: hsl(var(--red-hsl / 0.25));
-  --foo-lch: 48.25% 30.07 196.38;
-  --foo: lch(var(--foo-lch));
-  --bar-hwb: 210 0% 60%;
-  --bar: hwb(var(--bar-hwb / 0.5));
-  --baz-lab: 52.23% 40.16 52.23;
-  --baz: lab(var(--baz-lab));
+  --accent-rgb: 230 26 26;
+  --accent-hsl: 0deg 80% 50%;
+  --accent: hsl(var(--accent-hsl / 25%));
 }
 ```
 
-Currently the color functions `rgb()`, `hsl()`, `lch()`, `lab()`, `hwb()` and hex color (with 3, 4, 6 or 8 digits) are supported via [colord]. Alpha values are preserved by default (see options). Note that currently all values are converted to RGB internally, meaning there will be rounding errors. This will be fixed in a future release.
+Currently the color functions `rgb()`, `hsl()`, `lch()`, `lab()`, `hwb()` and hex color (with 3, 4, 6 or 8 digits) are supported via [colord]. Alpha values are preserved by default (see options). Note that currently all values are converted to RGB internally, meaning there will be rounding errors in conversions involving non-sRGB color functions. This will be fixed in a future release.
 
 ## Usage
 

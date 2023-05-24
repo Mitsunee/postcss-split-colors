@@ -15,7 +15,8 @@
     "build:types": "tsc -p tsconfig.build.json",
     "build:pkgjson": "clear-package-json package.json -o dist/package.json",
     "build": "pnpm build:lib && pnpm build:types && pnpm build:pkgjson",
-    "demo": "postcss --config demo/postcss.config.js demo/demo.css"
+    "demo": "postcss --config demo/postcss.config.js demo/demo.css",
+    "demo:full": "postcss --config demo/postcss.config.js demo/full-test.css"
   },
   "files": [
     "*.d.ts",

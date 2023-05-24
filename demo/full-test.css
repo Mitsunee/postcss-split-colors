@@ -1,0 +1,10 @@
+.full-test {
+  --ignored: #ffd;
+  --other-val: "Noto Sans", sans-serif;
+  --HEX: #3b9a5c !split;
+  --RGB: rgb(14, 14, 14) !split;
+  --HSL: hsl(0 80% 50% / 25%) !split;
+  --LCH: lch(48.25% 30.07 196.38) !split;
+  --HWB: hwb(210 0% 60% / 50%) !split;
+  --LAB: lab(52.2345% 40.1645 59.9971) !split;
+}
