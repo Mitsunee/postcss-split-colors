@@ -22,6 +22,9 @@
     "index.js"
   ],
   "dependencies": {
+    "@csstools/css-color-parser": "^1.2.0",
+    "@csstools/css-parser-algorithms": "^2.1.1",
+    "@csstools/css-tokenizer": "^2.1.1",
     "colord": "^2.9.3"
   },
   "peerDependencies": {

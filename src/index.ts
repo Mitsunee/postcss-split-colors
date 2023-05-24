@@ -1,6 +1,8 @@
 import { parseColour } from "./parseColour";
 import type { PluginCreator } from "postcss";
 import { Declaration } from "postcss";
+import { containsPrompt } from "./containsPrompt";
+import { colordProxy } from "./colordProxy";
 
 interface ConvertOption {
   rgb?: boolean;
@@ -20,7 +22,6 @@ export interface Options {
 const plugin: PluginCreator<Options> = function (opts) {
   const prompt = `!${opts?.prompt || "split"}`;
   const convert = opts?.convert || {};
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const preserveAlpha = opts?.preserveAlpha ?? true;
   const preserveDecl = opts?.preserve ?? false;
 
@@ -28,10 +29,13 @@ const plugin: PluginCreator<Options> = function (opts) {
     postcssPlugin: "postcss-split-colors",
     Declaration: decl => {
       if (!decl.variable) return;
-      if (!decl.value.endsWith(prompt)) return;
-      const { value: _value, colour, nativeFormat } = parseColour(decl, prompt);
+      const value = containsPrompt(decl, prompt);
+      if (!value) return;
+      const parsedColour = parseColour(decl, value);
+      const colour = colordProxy(parsedColour);
+      const { nativeFormat, nativeAlpha } = parsedColour;
 
-      if (nativeFormat == "rgb" || nativeFormat == "hex" || convert.rgb) {
+      if (nativeFormat == "rgb" || convert.rgb) {
         const rgba = colour.toRgb();
         const rgbDecl = new Declaration({
           prop: `${decl.prop}-rgb`,
@@ -83,11 +87,12 @@ const plugin: PluginCreator<Options> = function (opts) {
       }
 
       if (preserveDecl) {
-        decl.value = decl.value.replace(prompt, "").replace(/\s+/g, " ").trim();
+        decl.value = value;
       } else {
-        const hasAlpha = preserveAlpha && colour.alpha() < 1;
+        const hasAlpha =
+          preserveAlpha && typeof nativeAlpha == "number" && nativeAlpha < 1;
         decl.value = `${nativeFormat}(var(${decl.prop}-${nativeFormat}${
-          hasAlpha ? ` / ${colour.alpha()}` : ""
+          hasAlpha ? ` / ${nativeAlpha * 100}%` : ""
         }))`;
       }
     }
